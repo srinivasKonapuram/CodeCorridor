@@ -39,7 +39,7 @@ public class BaseCode {
 		 //DesiredCapabilities capability = DesiredCapabilities.firefox();
 		// capability.setBrowserName("firefox");
 		 capability.setBrowserName("chrome");
-		 capability.setPlatform(Platform.WIN10);
+		 capability.setPlatform(Platform.LINUX);
 		 nodeURL = "http://172.16.48.165:5566/wd/hub";
 		try {
 			driver = new RemoteWebDriver(new URL(nodeURL), capability);
