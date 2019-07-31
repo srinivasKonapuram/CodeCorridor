@@ -4,12 +4,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -30,15 +35,21 @@ public class BaseCode {
 
 		System.setProperty("webdriver.chrome.driver", "chromedriver");
 		// System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-		// DesiredCapabilities capability = DesiredCapabilities.chrome();
-		// DesiredCapabilities capability = DesiredCapabilities.firefox();
+		 DesiredCapabilities capability = DesiredCapabilities.chrome();
+		 //DesiredCapabilities capability = DesiredCapabilities.firefox();
 		// capability.setBrowserName("firefox");
-		// capability.setBrowserName("chrome");
-		// capability.setPlatform(Platform.WIN10);
-		// nodeURL = "http://172.16.48.140:5566/wd/hub";
-		// driver = new RemoteWebDriver(new URL(nodeURL), capability);
+		 capability.setBrowserName("chrome");
+		 capability.setPlatform(Platform.WIN10);
+		 nodeURL = "http://172.16.48.165:5566/wd/hub";
+		try {
+			driver = new RemoteWebDriver(new URL(nodeURL), capability);
+		} catch (MalformedURLException e) {
+			
+			e.printStackTrace();
+		}
 		
-		driver = new ChromeDriver();
+		
+	//	driver = new ChromeDriver();
 		String baseUrl = "https://corridor.pramati.com";
 		driver.get(baseUrl);
 		driver.manage().window().maximize();
