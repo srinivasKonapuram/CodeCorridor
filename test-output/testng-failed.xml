@@ -10,13 +10,9 @@
     <classes>
       <class name="com.imaginea.corridortaskJen.CorridorFeatures">
         <methods>
-          <include name="letsMeet"/>
-          <include name="HolidayList"/>
-          <include name="phoneBook"/>
-          <include name="profileLaunch"/>
           <include name="propertyFileload"/>
-          <include name="mainDriverForChrome"/>
           <include name="TripToPlan"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- com.imaginea.corridortaskJen.CorridorFeatures -->
     </classes>
